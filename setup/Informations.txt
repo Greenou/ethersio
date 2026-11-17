@@ -1,0 +1,27 @@
+INFORMATIONS AVANT L'INSTALLATION
+
+Droits administrateur et réseau
+Ethersio modifie la configuration réseau (adresse IP, DNS, DHCP) uniquement à votre
+demande, avec les droits d'administrateur de Windows. Vous êtes responsable des
+modifications que vous appliquez à votre ordinateur et à votre réseau.
+
+Installation
+Ethersio s'installe dans C:\Program Files\Ethersio pour tous les comptes de cet
+ordinateur, démarre avec Windows et peut être désinstallé depuis
+Paramètres > Applications.
+
+Mises à jour automatiques
+Une tâche planifiée (compte SYSTEM) vérifie régulièrement https://ethersio.barthaux.fr
+et installe les nouvelles versions signées par l'auteur. Une mise à jour dont la
+signature est invalide est refusée.
+
+Données et services contactés
+Ethersio ne collecte aucune donnée personnelle. Vos profils IP et votre journal restent
+sur votre ordinateur (%APPDATA%\Ethersio). Pour fonctionner, l'application contacte :
+ethersio.barthaux.fr (mises à jour), 1.1.1.1, www.google.com et
+www.msftconnecttest.com (test de connexion Internet, toutes les 8 secondes),
+api.ipify.org (IP publique, au clic) et speed.cloudflare.com (test de débit, à la
+demande). Ces services reçoivent l'adresse IP publique de l'ordinateur, comme tout
+site visité.
+
+LICENCE (MIT)

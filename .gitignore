@@ -1,0 +1,12 @@
+# compilation
+bin/
+obj/
+dist/
+*.exe
+*.exe.config
+
+# local
+.publier.env
+.remember/
+archive/
+.DS_Store

@@ -1,0 +1,27 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <!-- Installeur : embarque Ethersio.exe. Compile par publier.sh (dotnet build -p:Version=X.Y.Z -p:EthersioExe=...). -->
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net48</TargetFramework>
+    <AssemblyName>Ethersio-Setup</AssemblyName>
+    <RootNamespace>EthersioSetup</RootNamespace>
+    <Version>1.0.0</Version>
+    <Product>Ethersio</Product>
+    <AssemblyTitle>Installation d'Ethersio</AssemblyTitle>
+    <ApplicationIcon>..\src\Ethersio.ico</ApplicationIcon>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <Prefer32Bit>false</Prefer32Bit>
+    <Optimize>true</Optimize>
+    <DebugType>none</DebugType>
+    <EthersioExe>..\dist\build\Ethersio.exe</EthersioExe>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="Microsoft.CSharp" />
+    <EmbeddedResource Include="$(EthersioExe)" LogicalName="Ethersio.exe" />
+    <EmbeddedResource Include="..\LICENSE.txt" LogicalName="LICENSE.txt" />
+    <EmbeddedResource Include="Informations.txt" LogicalName="Informations.txt" />
+  </ItemGroup>
+</Project>

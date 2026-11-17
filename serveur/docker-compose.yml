@@ -1,0 +1,31 @@
+services:
+  ethersio:
+    image: nginx:alpine
+    container_name: ethersio
+    restart: unless-stopped
+    mem_limit: 32m
+    user: "101:101"
+    read_only: true
+    cap_drop:
+      - ALL
+    security_opt:
+      - no-new-privileges:true
+    # Ecoute 127.0.0.1:8400 sur l'hote, seul le tunnel Cloudflare y accede.
+    network_mode: host
+    tmpfs:
+      - /tmp
+    environment:
+      TZ: Europe/Paris
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+      - ./site:/usr/share/nginx/html:ro
+    healthcheck:
+      test: ["CMD", "wget", "-qO-", "http://127.0.0.1:8400/health"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+    logging:
+      driver: json-file
+      options:
+        max-size: 5m
+        max-file: "3"
